@@ -42,7 +42,7 @@ There are 16 visitor parking bays for use by genuine short term visitors to resi
 
 Minster Baywatch patrol the parking bays regularly and will issued Parking Charge Notices to the owner of any vehicle found to be irregularly parked. If a permit is found to be used irregularly on a continuing basis that permit will be cancelled.
 
-### Bicycles
+## Bicycles
 
 Residents owning bicycles will be issued with adhesive labels to be applied to their bicycles to Indicate that they may be kept in Bishops Wharf. These labels may be obtained by posting a written request in the letter box of No. 41, Postern close, in block 4A. Labelled bicycles may then be secured, at their owners' risk, to outdoor racks located at the rear of Block 5 and in the main car park.
 
