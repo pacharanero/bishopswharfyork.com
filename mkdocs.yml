@@ -1,0 +1,50 @@
+site_name: Bishops Wharf - York
+site_description: Information for residents of Bishops Wharf, York
+site_url: https://bishopswharfyork.com/
+copyright: Copyright &copy; Bishops Wharf (York) Management Co. Ltd.
+
+theme:
+  variant: modern
+  palette:
+    - scheme: default
+      toggle:
+        icon: lucide/sun
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: lucide/moon
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.action.edit
+    - content.action.view
+
+nav:
+  - Home: index.md
+  - Blocks: blocks.md
+  - Introduction: introduction.md
+  - Facilities: facilities.md
+  - Safety & Security: safety-and-security.md
+  - Every Day Life: everyday-life.md
+  - Maintenance & Alterations: maintenance-and-alterations.md
+  - Communications: communications.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+
+extra:
+  social:
+    - icon: simple/facebook
+      link: https://www.facebook.com/groups/1298529540605380
+      name: Bishops Wharf owners Facebook group

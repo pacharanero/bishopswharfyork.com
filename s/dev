@@ -1,0 +1,93 @@
+#!/usr/bin/env bash
+# Serve the Zensical site locally for development.
+#
+# Usage:
+#   ./s/dev                  # auto-pick next free port >= 8000 and open a browser
+#   PORT=8080 ./s/dev        # force a specific port
+#   ./s/dev --no-open        # skip the auto browser-open
+#   ./s/dev -- <extra flags> # pass extra flags through to `zensical serve`
+#
+# Creates a local virtualenv in .venv on first run, installs requirements,
+# then runs `zensical serve` with live reload.
+
+set -euo pipefail
+
+THIS_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_ROOT="$(cd "$THIS_DIR/.." && pwd)"
+cd "$PROJECT_ROOT"
+
+VENV_DIR="${PROJECT_ROOT}/.venv"
+
+OPEN_BROWSER=1
+EXTRA_ARGS=()
+for arg in "$@"; do
+  case "$arg" in
+    --no-open) OPEN_BROWSER=0 ;;
+    --) shift; EXTRA_ARGS=("$@"); break ;;
+    *) EXTRA_ARGS+=("$arg") ;;
+  esac
+done
+
+if [[ ! -d "$VENV_DIR" ]]; then
+  echo "Creating virtualenv in $VENV_DIR"
+  python3 -m venv "$VENV_DIR"
+fi
+
+# shellcheck source=/dev/null
+source "$VENV_DIR/bin/activate"
+
+pip install --quiet --upgrade pip
+pip install --quiet -r requirements.txt
+
+# Pick the next free port >= 8000 (or honour $PORT if set).
+port_is_free() {
+  local p="$1"
+  # Use Python so we don't need `ss`, `lsof`, or `nc` to be present.
+  python3 - "$p" <<'PY'
+import socket, sys
+port = int(sys.argv[1])
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+try:
+    s.bind(("127.0.0.1", port))
+except OSError:
+    sys.exit(1)
+finally:
+    s.close()
+sys.exit(0)
+PY
+}
+
+if [[ -n "${PORT:-}" ]]; then
+  PORT_TO_USE="$PORT"
+  port_is_free "$PORT_TO_USE" || { echo "ERROR: \$PORT=$PORT is already in use."; exit 1; }
+else
+  PORT_TO_USE=""
+  for candidate in $(seq 8000 8099); do
+    if port_is_free "$candidate"; then
+      PORT_TO_USE="$candidate"
+      break
+    fi
+  done
+  [[ -z "$PORT_TO_USE" ]] && { echo "ERROR: no free port found in 8000-8099."; exit 1; }
+fi
+
+URL="http://127.0.0.1:${PORT_TO_USE}/"
+echo "Serving Zensical on $URL"
+
+if [[ $OPEN_BROWSER -eq 1 ]]; then
+  # Delay the browser-open so the server is actually listening first.
+  (
+    for _ in $(seq 1 50); do
+      if ! port_is_free "$PORT_TO_USE"; then
+        if command -v xdg-open >/dev/null 2>&1; then xdg-open "$URL" >/dev/null 2>&1 &
+        elif command -v open >/dev/null 2>&1; then open "$URL" >/dev/null 2>&1 &
+        fi
+        exit 0
+      fi
+      sleep 0.2
+    done
+  ) &
+fi
+
+exec zensical serve --dev-addr "127.0.0.1:${PORT_TO_USE}" "${EXTRA_ARGS[@]}"
