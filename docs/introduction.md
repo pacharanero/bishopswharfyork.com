@@ -1,4 +1,4 @@
-# INTRODUCTION
+# Introduction
 
 Bishops Wharf is a Wimpey development which was completed in 1988 and which won an architectural award in 1991.
 
@@ -16,4 +16,3 @@ The Bishops Wharf properties are located in seven [Blocks](blocks.md) and a plan
 
 Please do take time to read these notes because by your doing so, and acting accordingly, you will help to make living in Bishops Wharf enjoyable for us all.
 
-*Copyright - Bishops Wharf (York) Management Co. Ltd.*

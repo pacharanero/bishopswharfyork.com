@@ -1,4 +1,4 @@
-# COMMUNICATIONS
+# Communications
 
 All matters relating to actions requested by residents shall, in the first instance be raised with the Managing Agent, who will, if necessary, then refer them to the Board of the Company.
 
@@ -9,4 +9,3 @@ It is then the responsibility of Leaseholders who do not occupy their own proper
 
 ![Mudd](assets/mudd.png)
 
-*Copyright - Bishops Wharf (York) Management Co. Ltd.*
