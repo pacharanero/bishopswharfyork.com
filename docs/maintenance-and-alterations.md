@@ -16,11 +16,10 @@ The responsibility for external repairs to houses rests with the Leaseholder of 
 
 All leases require that no alteration shall be made to the exterior appearance of any property, including the attachment of anything to its structure, without the prior permission of the Directors.
 
-should you wish to carry out any such alteration, including the replacement of doors, windows etc you must apply in writing to the Managing Agent describing your proposed work.
+Should you wish to carry out any such alteration, including the replacement of doors, windows etc you must apply in writing to the Managing Agent describing your proposed work.
 
 This proposal will then be considered by The Board which may, or may not, approve the works.
 
 Failure to obtain this approval before the works are carried out may cause a charge to be placed on the property.
 
-It is however appreciated that it is difficult to replace doors and windows on a strictly like-for-like basis and the Board will consider all applications sympathetically
-
+It is however appreciated that it is difficult to replace doors and windows on a strictly like-for-like basis and the Board will consider all applications sympathetically.

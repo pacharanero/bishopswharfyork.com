@@ -15,4 +15,3 @@ The purpose of this information booklet is to explain the nature and location of
 The Bishops Wharf properties are located in seven [Blocks](blocks.md) and a plan of the development, showing the Block numbers and the numbers of the individual properties is shown in the [Blocks](blocks.md) tab of this web site to enable you to identify the locations referred to herein.
 
 Please do take time to read these notes because by your doing so, and acting accordingly, you will help to make living in Bishops Wharf enjoyable for us all.
-

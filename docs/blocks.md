@@ -7,5 +7,3 @@
 ![Bishops Wharf](assets/bishops-wharf-new.jpg)
 
 ![Blocks 02](assets/blocks-02.png)
-
-*Copyright - Bishops Wharf (York) Management Co. Ltd*

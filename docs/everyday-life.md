@@ -32,7 +32,7 @@ Recyclable waste is divided into three categories: glass, paper and card, and pl
 
 Residents of houses are provided with three containers for each category and they should place all recyclable waste in the appropriate box. Boxes should be left on the drive ways of their houses to be emptied by city of York Council operatives.
 
-Residents of apartments are responsible for placing recyclable materials in bins for the same categories of waste provided by the City of York Council at locations shown on the plan posted on the Notice Board for each Block. All .bins will then be emptied by City of York Council operatives.
+Residents of apartments are responsible for placing recyclable materials in bins for the same categories of waste provided by the City of York Council at locations shown on the plan posted on the Notice Board for each Block. All bins will then be emptied by City of York Council operatives.
 
 ## Car parking
 
@@ -57,4 +57,3 @@ The storage or parking of caravans, mobile homes, vans longer than a large saloo
 ## Drying washing
 
 Displaying washing on the outside of any property, including patios, balconies, window boxes, communal areas inside and out, and gardens of houses is not permitted.
-

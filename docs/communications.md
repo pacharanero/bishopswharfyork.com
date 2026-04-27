@@ -8,4 +8,3 @@ Communication between the Company and Leaseholders is made via a portal on the w
 It is then the responsibility of Leaseholders who do not occupy their own properties to ensure that residents in their properties are made aware of, and comply with, the contents of those communications, and of the provisions of the leases that they hold from Bishops Wharf (York) Management co. Ltd.
 
 ![Mudd](assets/mudd.png)
-

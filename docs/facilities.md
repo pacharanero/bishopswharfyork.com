@@ -24,7 +24,6 @@ if damage is caused to carpets, walls, ceilings or fittings of a communal area t
 
 ## Pavilion blocks lifts
 
-In no circumstances shall lift doors be propped open while furniture etc is being moved because such action will damage the lift mechanisms of the lifts.
+In no circumstances shall lift doors be propped open while furniture etc is being moved because such action will damage the lift mechnisms of the lifts.
 
-Protective lift curtains shall be hung before a lift is used for any other purpose than for the carriage of people, and the Managing Agent must be informed of the need for these curtains at least 48 hours in advance, so that arrangement for the supply of the curtains can be arranged. The cost of making good any damage caused to a lift by such operation will be charged to the Leaseholder involved.
-
+Protective lift curtains shall be hung before a lift is used for any other purpose than for the carriage of people, and the Managing Agent must be informed of the need for these curtains at least 48 hours in advance, so that arrangement for the supply of the curtains can be arranged. The cost of making good any damage caused to a lift by such operation will be charged to the Leaseholder involved
