@@ -5,13 +5,13 @@ on:
   push:
     branches:
       - main
+  pull_request:
+  workflow_dispatch:
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: docs-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -24,26 +24,44 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: 3.x
-      - uses: actions/configure-pages@v6
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
       - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
-          key: zensical-${{ env.cache_id }}
-          path: ~/.cache
-          restore-keys: |
-            zensical-
+          key: pip-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
+          path: ~/.cache/pip
       - run: pip install -r requirements.txt
       - run: zensical build --clean
-      - uses: actions/upload-pages-artifact@v5
+      - run: python -m unittest discover -s tests -v
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         with:
           path: site
 
   deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
       - id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+
+  workflow-security:
+    name: GitHub Actions security
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: 3.x
+      - run: pip install zizmor==1.32.0
+      - run: zizmor --strict-collection .
+        env:
+          GH_TOKEN: ${{ github.token }}
